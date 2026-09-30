@@ -1,0 +1,424 @@
+<!doctype html>
+<!--
+  DTR-01 · Divya Teja Reddy Chekkera
+  Hand-written HTML and one stylesheet. No JavaScript, no framework, no trackers.
+  If you read page source for fun, we should talk: chakkeradivyatejareddy@gmail.com
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Divya Teja Reddy Chekkera — Design Verification Engineer</title>
+<meta name="description" content="Design verification engineer in Bengaluru (UVM, SVA, formal, coverage closure) who also designs and ships verification tools: VereChek, DV Verification Hub and an autonomous product pipeline.">
+<link rel="canonical" href="https://divyatejareddy.vercel.app/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f2efe6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/serif-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/sans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/serif-400i.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/mono-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/site.css">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Divya Teja Reddy Chekkera">
+<meta property="og:title" content="Divya Teja Reddy Chekkera — Design Verification Engineer">
+<meta property="og:description" content="UVM, SVA and formal by day; verification tools by night. The DTR-01 datasheet: projects, bugs closed, and how I work.">
+<meta property="og:url" content="https://divyatejareddy.vercel.app/">
+<meta property="og:image" content="https://divyatejareddy.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DTR-01 datasheet cover: Divya Teja Reddy Chekkera, design verification engineer, Bengaluru.">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Divya Teja Reddy Chekkera","alternateName":"Divya Teja Chekkera","url":"https://divyatejareddy.vercel.app/","jobTitle":"Technical Support Engineer – Verification","worksFor":{"@type":"Organization","name":"Maven Silicon Softech Pvt. Ltd."},"alumniOf":{"@type":"CollegeOrUniversity","name":"R.V.R. & J.C. College of Engineering"},"address":{"@type":"PostalAddress","addressLocality":"Bengaluru","addressCountry":"IN"},"knowsAbout":["Design verification","SystemVerilog","UVM","SystemVerilog Assertions","Formal verification","Functional coverage","Python","FastAPI"],"sameAs":["https://www.linkedin.com/in/divya-teja-reddy-chekkera-b9a38623b","https://github.com/chekkeradivyateja","https://divyatejareddy.gumroad.com"]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>DTR-01</b>Divya Teja Reddy Chekkera</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#about"><span>01</span>About</a></li>
+        <li><a href="#work"><span>02</span>Work</a></li>
+        <li><a href="#bugs"><span>03</span>Bugs</a></li>
+        <li><a href="#principles"><span>04</span>Principles</a></li>
+        <li><a href="#skills"><span>05</span>Skills</a></li>
+        <li><a href="#timeline"><span>06</span>Timeline</a></li>
+        <li><a href="#contact"><span>07</span>Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<header class="hero wrap" id="top">
+  <div class="doc">
+    <p class="lbl"><b>DTR-01</b> · Datasheet · Design verification engineer</p>
+    <p class="lbl">DTRS-001 – November 2024 – Revised September 2026</p>
+  </div>
+  <div class="hero-grid">
+    <div>
+      <p class="lbl">Bengaluru, India · UVM · SVA · Formal · Tooling</p>
+      <h1><span>Divya Teja</span> <span>Reddy Chekkera</span></h1>
+      <p class="lede">I find the bugs hiding in RTL <em>before</em> they become silicon — and build the tools that help other verification engineers find them faster.</p>
+      <ul class="links">
+        <li><a class="pri" href="mailto:chakkeradivyatejareddy@gmail.com">Email me</a></li>
+        <li><a href="https://www.linkedin.com/in/divya-teja-reddy-chekkera-b9a38623b">LinkedIn ↗</a></li>
+        <li><a href="https://github.com/chekkeradivyateja">GitHub ↗</a></li>
+        <li><a href="#work">See the work ↓</a></li>
+      </ul>
+    </div>
+    <figure class="fbd">
+      <svg viewBox="0 0 380 300" role="img" aria-labelledby="fbd-t">
+        <title id="fbd-t">Block diagram of DTR-01: a specification, RTL and simulation logs go in; UVM testbenches, formal proofs, shipped tools and root causes come out.</title>
+        <path d="M180 14V40M180 260V286"/>
+        <text x="188" y="24">VDD</text><text x="188" y="284">GND</text>
+        <rect class="box" x="110" y="40" width="140" height="220"/>
+        <text class="t" x="180" y="74" text-anchor="middle">DTR-01</text>
+        <rect class="sub" x="124" y="88" width="112" height="44"/><text x="180" y="115" text-anchor="middle">VERIFY</text>
+        <rect class="sub" x="124" y="142" width="112" height="44"/><text x="180" y="169" text-anchor="middle">AUTOMATE</text>
+        <rect class="sub" x="124" y="196" width="112" height="44"/><text x="180" y="223" text-anchor="middle">SHIP</text>
+        <text x="64" y="104" text-anchor="end">SPEC</text><text x="64" y="154" text-anchor="end">RTL</text><text x="64" y="204" text-anchor="end">LOGS</text>
+        <path d="M70 100H104M70 150H104M70 200H104M250 80H280M250 127H280M250 173H280M250 220H280"/>
+        <path class="flow" d="M70 100H110M70 150H110M70 200H110M250 80H286M250 127H286M250 173H286M250 220H286"/>
+        <path class="ah" d="M104 96l6 4-6 4zM104 146l6 4-6 4zM104 196l6 4-6 4zM280 76l6 4-6 4zM280 123l6 4-6 4zM280 169l6 4-6 4zM280 216l6 4-6 4z"/>
+        <text x="292" y="84">TESTBENCHES</text><text x="292" y="131">PROOFS</text><text x="292" y="177">TOOLS</text><text x="292" y="224">ROOT CAUSES</text>
+      </svg>
+      <figcaption><b>Figure 1.</b> Functional block diagram</figcaption>
+    </figure>
+  </div>
+  <p class="lbl cap">Typical characteristics · T = September 2026</p>
+  <dl class="specs">
+    <div><dt>RTL bugs found through formal verification</dt><dd>5</dd></div>
+    <div><dt>Functional coverage, closed on 3 UVM environments</dt><dd>100%</dd></div>
+    <div><dt>Designs in VereChek’s real-compile regression</dt><dd>16</dd></div>
+    <div><dt>In-depth SystemVerilog &amp; UVM articles published</dt><dd>30</dd></div>
+    <div><dt>Agents in an unattended product pipeline</dt><dd>9</dd></div>
+  </dl>
+</header>
+
+<section class="sec wrap" id="about" aria-labelledby="about-h">
+  <div class="sec-h"><p class="lbl">01 · Description</p><h2 id="about-h">About</h2></div>
+  <div class="about">
+    <div class="prose">
+      <p class="big">Hi, I’m Divya Teja — a design verification engineer at Maven Silicon in Bengaluru.</p>
+      <p>My day job is building UVM environments and formal proofs for AMBA-based IP — APB-SPI, APB-UART 16550, AHB-to-APB bridges — and chasing coverage until it closes. On the APB-SPI controller, formal verification in JasperGold surfaced five RTL bugs through vacuous proofs and unreachable covers: corner cases that simulation alone can’t prove.</p>
+      <p>I came to verification by way of an ECE degree in Guntur, a co-authored journal paper comparing 32-bit complex floating-point multiplier architectures, and a cybersecurity internship at TCS spent parsing logs for the one line that mattered. That habit stuck.</p>
+      <p>Outside work I build the tools I wished I had. <a href="#verechek">VereChek</a> turns RTL into a compiling UVM testbench and a design-specific verification plan. <a href="#dvhub">DV Verification Hub</a> is a free reference for engineers learning the same stack. <a href="#mm">Money Machine</a> researches, builds and lists digital products on its own, every 30 minutes. The through-line is the same everywhere: find the detail that’s quietly wrong, and fix the cause, not the symptom.</p>
+    </div>
+    <div>
+      <table class="reg">
+        <caption>Table 1. Status register map</caption>
+        <thead><tr><th scope="col">Offset</th><th scope="col">Register</th><th scope="col">Value</th><th scope="col">Access</th></tr></thead>
+        <tbody>
+          <tr><td>0x00</td><th scope="row">ROLE</th><td>Technical Support Engineer – Verification, Maven Silicon</td><td>RO</td></tr>
+          <tr><td>0x04</td><th scope="row">BASE</th><td>Bengaluru, India · IST (UTC+5:30)</td><td>RO</td></tr>
+          <tr><td>0x08</td><th scope="row">FOCUS</th><td>UVM · SVA · formal · coverage closure</td><td>RW</td></tr>
+          <tr><td>0x0C</td><th scope="row">BUILDING</th><td>VereChek, in early access</td><td>RW</td></tr>
+          <tr><td>0x10</td><th scope="row">WRITING</th><td>DV Verification Hub, 30 articles</td><td>RW</td></tr>
+          <tr><td>0x14</td><th scope="row">EDU</th><td>B.Tech, Electronics &amp; Communication, 2024</td><td>RO</td></tr>
+        </tbody>
+      </table>
+      <p class="note">RO: fixed. RW: changes often, and this page is revised when it does.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" id="work" aria-labelledby="work-h">
+  <div class="sec-h"><p class="lbl">02 · Typical applications</p><h2 id="work-h">Selected work</h2></div>
+  <div class="work">
+    <p class="big">Three products I designed, built and shipped end to end — and the verification work underneath them.</p>
+
+    <article class="case" id="verechek" aria-labelledby="vc-h">
+      <p class="lbl">Application 1 · Flagship · July 2026 – present</p>
+      <h3 id="vc-h">VereChek</h3>
+      <p class="sub">AI-assisted verification that ships as a single binary: RTL in; a compiling UVM testbench, a verification plan and live log debugging out.</p>
+      <dl class="meta">
+        <div><dt>Role</dt><dd>Solo — product, engineering, infrastructure and site</dd></div>
+        <div><dt>Status</dt><dd>Early access, 100 founding slots</dd></div>
+        <div><dt>Stack</dt><dd>Python · Nuitka · FastAPI · Render · pyslang · Next.js · Postgres · Razorpay</dd></div>
+        <div><dt>Live</dt><dd><a href="https://verechek-website.vercel.app">verechek-website.vercel.app ↗</a></dd></div>
+      </dl>
+      <div class="cols">
+        <div class="prose">
+          <h4>The problem</h4>
+          <p>Every verification project opens with hours of UVM scaffolding — interfaces, agents, sequencers, scoreboards, coverage stubs — before the first real testcase. AI can draft it, but AI-written SystemVerilog that doesn’t compile is worse than none. And shipping an AI tool to machines you don’t control usually means shipping your API key with it.</p>
+          <h4>What it does</h4>
+          <p>Point it at Verilog or SystemVerilog and it generates a UVM or plain-SV testbench, a design-specific verification plan (scenarios, covergroups, SVA assertions), ASCII and HTML architecture diagrams, and a log watcher that turns VCS, Questa and Xcelium failures into file-and-line fix guidance. Local generation works fully offline; AI features are opt-in.</p>
+        </div>
+        <figure class="plate">
+          <img src="/img/verechek-console.webp" width="1200" height="685" loading="lazy" decoding="async" alt="VereChek console demo: the command verechek --rtl spi_master.v --gen uvm prints a port table for module spi_master and detects an SPI master with four chip selects.">
+          <figcaption><b>Plate 1.</b> Console demo from the VereChek site, captured 30 Sep 2026</figcaption>
+        </figure>
+      </div>
+
+      <figure class="arch" aria-labelledby="arch-cap">
+        <ol>
+          <li class="blk"><b>Client machine</b><span><code>vc</code>, one Nuitka-compiled binary</span><span>Parses RTL, generates testbenches and diagrams offline</span><span class="k">Holds: a license key</span></li>
+          <li class="wire" aria-hidden="true"><span>HTTPS</span></li>
+          <li class="blk"><b>Relay · FastAPI on Render</b><span>Validates licenses, meters usage, proxies every AI call</span><span>Issues and revokes keys; hosts builds and the installer</span><span class="k">Holds: the provider API key</span></li>
+          <li class="wire" aria-hidden="true"><span>Prompt</span></li>
+          <li class="blk"><b>AI provider</b><span>Switchable at runtime</span><span>429s retried on Retry-After, inside a time budget</span></li>
+        </ol>
+        <p class="lane"><b>Build</b> manylinux_2_28 container → Nuitka → upload to relay → <code>curl … | bash</code> on the client</p>
+        <figcaption id="arch-cap"><b>Figure 2.</b> VereChek system architecture</figcaption>
+      </figure>
+
+      <h4>Design decisions</h4>
+      <ol class="decisions">
+        <li><p><b>Keys stay on the server.</b> Clients hold a license key, never a provider key. The relay validates, meters and proxies every AI call, so revoking one license cuts off AI and install access in one place.</p></li>
+        <li><p><b>AI output has to earn its way into a file.</b> Rejection-only validators check every AI-proposed assertion, testcase and covergroup — SVA structure, unterminated strings, identifiers outside the interface’s scope, hallucinated transaction fields — and fall back to a safe default rather than embed broken code.</p></li>
+        <li><p><b>Verified by compiling, not eyeballing.</b> Every design in a 16-design corpus is generated and compiled through a real SystemVerilog frontend (pyslang) against Accellera UVM-1.2, for both UVM and plain-SV output. The first pass found 18 real compile and functional bugs; the corpus now guards against every one.</p></li>
+        <li><p><b>A log watcher that actually tails.</b> Rewrote watch-log from re-parsing the whole file on every poll — with a fresh AI call per issue, per poll — to byte-offset tailing with rotation detection, <code>tail -f</code> semantics and one AI call per issue, ever. An equivalence checker against the old parser caught two bugs before release.</p></li>
+        <li><p><b>One-line install, scoped to one client.</b> <code>curl -sSL "…/install.sh?key=…" | bash</code> is gated on the caller’s own license instead of a shared secret: a leaked link exposes one client, and it’s revocable.</p></li>
+        <li><p><b>Runs on old machines too.</b> Built in a manylinux_2_28 container after a real GLIBC failure on an older client box. It bundles its own CA certificates so HTTPS works wherever it lands, and dead code paths are excluded to roughly halve the binary.</p></li>
+      </ol>
+
+      <div class="proof">
+        <h4>Proof: an AXI4-Lite-to-APB4 bridge</h4>
+        <p>A genuinely complex test design: a five-channel AXI4-Lite slave driving an APB4 master through an FSM, with write/read arbitration and PSLVERR-to-BRESP/RRESP mapping. VereChek parsed all 26 ports, 9 parameters and 5 FSM states, generated a register model, a virtual sequencer and three correctly differentiated agents, and both output flavours compiled clean. With AI on, the plan flagged a write-priority read-starvation risk and a missing-timeout deadlock risk — both planted in the RTL on purpose.</p>
+        <dl class="specs sm">
+          <div><dt>Designs in the compile regression</dt><dd>16</dd></div>
+          <div><dt>Bugs the first real-compile pass caught</dt><dd>18</dd></div>
+          <div><dt>Commits to the tool since July 2026</dt><dd>85</dd></div>
+          <div><dt>Provider keys on client machines</dt><dd>0</dd></div>
+        </dl>
+        <p class="note">The marketing site is Next.js, Tailwind and Framer Motion, with server-verified Razorpay checkout for ₹299 early-access slots and a Postgres-backed waitlist with email notifications.</p>
+      </div>
+    </article>
+
+    <article class="card" id="dvhub" aria-labelledby="dv-h">
+      <div>
+        <p class="lbl">Application 2 · Live since September 2026</p>
+        <h3 id="dv-h">DV Verification Hub</h3>
+        <p class="sub">A free UVM, SystemVerilog and SVA reference, written by a working verification engineer rather than a content farm.</p>
+        <ul class="facts">
+          <li><b>30</b> long-form articles: UVM phases, RAL, factory overrides, clocking blocks, <code>$rose</code>/<code>$fell</code>/<code>$stable</code> and more.</li>
+          <li><b>3</b> tools that run entirely in the browser: a UVM testbench generator (custom, AXI-Lite, APB), an SVA snippet builder with six assertion patterns, and a 50-question interview bank.</li>
+          <li><b>0</b> servers: static export, build-time Open Graph images (satori + resvg), JSON-LD structured data, a sitemap and Search Console.</li>
+        </ul>
+        <p>Hardened with a Content Security Policy and legal pages. Readers can take a free interview cheat-sheet generated from the question bank, or the five-guide “Roadmap to Verification Engineer” bundle I wrote.</p>
+        <p class="go-row"><a class="go" href="https://dv-verification-hub.vercel.app">Visit the site ↗</a><a class="go" href="https://github.com/chekkeradivyateja/dv-verification-hub">Source ↗</a></p>
+      </div>
+      <figure class="plate">
+        <img src="/img/dvhub-sva.webp" width="1200" height="662" loading="lazy" decoding="async" alt="DV Verification Hub's SVA Snippet Builder: a list of assertion patterns beside a generated property block for a request-grant implication.">
+        <figcaption><b>Plate 2.</b> The SVA snippet builder, captured 30 Sep 2026</figcaption>
+      </figure>
+    </article>
+
+    <article class="card" id="mm" aria-labelledby="mm-h">
+      <div>
+        <p class="lbl">Application 3 · Running since September 2026</p>
+        <h3 id="mm-h">Money Machine</h3>
+        <p class="sub">An unattended, nine-agent pipeline that researches, builds, QA-gates and lists digital products on Gumroad.</p>
+        <ol class="chain" aria-label="Pipeline stages, in order">
+          <li>Scout</li><li>Judge</li><li>Creator</li><li>QA gate</li><li>Publisher</li><li>Marketing</li><li>Analytics</li><li>Optimizer</li><li>SEO content</li>
+        </ol>
+        <ul class="facts">
+          <li>A status-routed orchestrator over SQLite with stateless agents: kill it anywhere and it resumes where it stopped, and publishing is idempotent.</li>
+          <li>The QA gate fails closed. Anything with IP or policy risk waits for a human, and every rejection teaches the gate a new banned term.</li>
+          <li>Real Gumroad v2 integration — product creation, presigned multipart upload, rich-content file embedding — on a 30-minute cron, under a lock so cycles never overlap.</li>
+          <li>Creates drafts by default. Going live with money involved stays a human decision.</li>
+        </ul>
+        <p>Its companion, Notion Student Hub, is a static SEO site the pipeline’s content agent writes for: 14 guides so far, 8 of them written and committed by the pipeline itself. Honest status: production is autonomous; traffic is the open problem, and that site is the first real lever.</p>
+        <p class="go-row"><a class="go" href="https://notion-student-hub.vercel.app">Notion Student Hub ↗</a><a class="go" href="https://divyatejareddy.gumroad.com">DTRLabs on Gumroad ↗</a></p>
+      </div>
+      <figure class="plate">
+        <img src="/img/notion-hub.webp" width="800" height="560" loading="lazy" decoding="async" alt="Notion Student Hub home page: a short introduction, two product links and a list of guides.">
+        <figcaption><b>Plate 3.</b> Notion Student Hub, captured 30 Sep 2026</figcaption>
+      </figure>
+    </article>
+
+    <div class="env">
+      <h3>Verification environments</h3>
+      <table class="stack">
+        <caption>Table 2. UVM and formal environments, Maven Silicon, 2024–2026</caption>
+        <thead><tr><th scope="col">Design</th><th scope="col">Methodology</th><th scope="col">Result</th><th scope="col">Source</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">APB-based SPI controller</th><td>UVM, RAL (front- and back-door), SVA, JasperGold FPV</td><td>5 RTL bugs via vacuous proofs and unreachable covers; 100% functional coverage across all four CPOL/CPHA modes</td><td><a href="https://github.com/chekkeradivyateja/APB-Based-SPI-Protocol-Verification-UVM">GitHub ↗</a></td></tr>
+          <tr><th scope="row">APB UART 16550</th><td>UVM, RAL, SVA, JasperGold FPV</td><td>100% functional coverage across baud rates, 5–8-bit data, parity and stop-bit modes</td><td>—</td></tr>
+          <tr><th scope="row">AHB-to-APB bridge</th><td>UVM on VCS and Questa</td><td>100% functional coverage; bug-detection time down 25%</td><td><a href="https://github.com/chekkeradivyateja/AHB_to_APB-Bridge">GitHub ↗</a></td></tr>
+          <tr><th scope="row">1×3 packet router</th><td>RTL design in SystemVerilog, then UVM</td><td>FIFO buffering and arbitration; packet latency down 30%</td><td><a href="https://github.com/chekkeradivyateja/Router_1X3">RTL ↗</a> · <a href="https://github.com/chekkeradivyateja/uvm-router1x3-verification">UVM ↗</a></td></tr>
+          <tr><th scope="row">Mod-14 up/down counter</th><td>SystemVerilog testbench</td><td>Loadable, asynchronous up/down counting</td><td><a href="https://github.com/chekkeradivyateja/Counter-14">GitHub ↗</a></td></tr>
+        </tbody>
+      </table>
+      <p class="note">Publication: <a href="https://www.jetir.org/view?paper=JETIR2404815">“Comparative Analysis of 32-Bit Complex Floating Point Multiplier”</a> — array, Vedic and CIFM multipliers implemented in Verilog on Vivado. With Karthik Bandla and Dhana Sri Darla; Journal of Emerging Technologies and Innovative Research (JETIR), March 2024.</p>
+    </div>
+
+    <div class="archive">
+      <h3>Earlier builds, 2023–24</h3>
+      <ul>
+        <li><a href="https://github.com/chekkeradivyateja/Bug-Tracking-System">Bug Tracking System</a> — a Java Swing desktop app on PostgreSQL</li>
+        <li><a href="https://github.com/chekkeradivyateja/Backend-API-with-NODE.js-and-SQL-for-database-design-for-app-like-Zomato-Swiggy">Food-delivery backend</a> — a Node.js API and SQL schema for users, restaurants, orders, payments and delivery</li>
+        <li><a href="https://github.com/chekkeradivyateja/eAttend">eAttend</a> — a web attendance tracker for students and faculty</li>
+        <li><a href="https://github.com/chekkeradivyateja/Credit-Card-Fraud-Detection">Credit-card fraud detection</a> — a machine-learning notebook</li>
+        <li><a href="https://github.com/chekkeradivyateja/AquaLink">AquaLink</a> — wireless water-level monitoring and control</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" id="bugs" aria-labelledby="bugs-h">
+  <div class="sec-h"><p class="lbl">03 · Errata</p><h2 id="bugs-h">Bugs I’ve closed</h2></div>
+  <div>
+    <p class="big">Datasheets publish their errata. These are mine: real bugs in my own tools, what caused them, and how I closed them.</p>
+
+    <article class="err" aria-labelledby="e1">
+      <div class="err-h"><p class="lbl">ERR-01 · VereChek · AI engine → CLI</p><p class="stamp">Closed</p></div>
+      <h3 id="e1">An error message from the wrong call</h3>
+      <dl>
+        <div><dt>Symptom</dt><dd>A real AI failure reached the user as <code>AI: ERROR – None</code>, or as an unrelated error left over from an earlier call.</dd></div>
+        <div><dt>Root cause</dt><dd>Four wrappers returned a bare <code>None</code> on failure, discarding the real reason (token cut-off, invalid JSON). Callers fell back to a module-level error string that cache hits never reset. And a failure result was a truthy dict, so <code>if not result</code> waved it through as success.</dd></div>
+        <div><dt>Fix</dt><dd>One error-resolution path for every AI wrapper, explicit failure markers instead of truthiness, the stale error cleared on success, and failures never cached, so a transient 429 or 502 can actually be retried.</dd></div>
+      </dl>
+      <p class="found"><b>Found by</b> an end-to-end run against a real AXI4-Lite-to-APB4 bridge with a live license key.</p>
+    </article>
+
+    <article class="err" aria-labelledby="e2">
+      <div class="err-h"><p class="lbl">ERR-02 · VereChek relay · Licensing</p><p class="stamp">Closed</p></div>
+      <h3 id="e2">Out of AI quota meant out of the product</h3>
+      <dl>
+        <div><dt>Symptom</dt><dd>A client who had used the month’s AI quota couldn’t reinstall or download the tool, so they lost fully local features that never call the AI.</dd></div>
+        <div><dt>Root cause</dt><dd>Download authorization reused the AI-proxy check, which includes the usage limit. It conflated who you are with how much AI you’ve used.</dd></div>
+        <div><dt>Fix</dt><dd>A separate identity-only check (active and not expired) gates install and download; the quota gates AI calls alone. Revoked or expired keys stay blocked everywhere. I fixed the architecture, not the limit.</dd></div>
+      </dl>
+      <p class="found"><b>Found by</b> using the product myself: the build’s own embedded key was over its monthly limit.</p>
+    </article>
+
+    <article class="err" aria-labelledby="e3">
+      <div class="err-h"><p class="lbl">ERR-03 · VereChek relay · Free-tier hosting</p><p class="stamp">Closed</p></div>
+      <h3 id="e3">The 70 MB download that just stopped</h3>
+      <dl>
+        <div><dt>Symptom</dt><dd>Intermittent install failures: 502s on cold start, error bodies arriving instead of a binary, and transfers that stalled forever with no error at all.</dd></div>
+        <div><dt>Root cause</dt><dd>The cold-start wake-up call hit the download endpoint itself, moving the whole binary twice and doubling exposure to the host proxy’s flaky handling of large responses.</dd></div>
+        <div><dt>Fix</dt><dd>Wake with the cheap <code>/health</code> endpoint. Bound every transfer with <code>--max-time</code> and one retry. Reject any “binary” under 1 MB and print it as the error it is. AI calls retry 429s on Retry-After inside a budget that stays under the client’s own timeout.</dd></div>
+      </dl>
+      <p class="found"><b>Found by</b> chasing intermittent install failures to the one request that made them likely.</p>
+    </article>
+
+    <article class="err" aria-labelledby="e4">
+      <div class="err-h"><p class="lbl">ERR-04 · VereChek · RTL parser</p><p class="stamp">Closed</p></div>
+      <h3 id="e4">Three ports that vanished without a warning</h3>
+      <dl>
+        <div><dt>Symptom</dt><dd>A client’s APB-bridge RTL failed a VCS compile with “too few instance port connections”: <code>PADDR</code>, <code>PWDATA</code> and <code>PRDATA</code> were missing from every generated file.</dd></div>
+        <div><dt>Root cause</dt><dd>The port-width pattern didn’t allow a backtick, so any port whose width used a <code>`define</code> macro failed to match and was silently dropped.</dd></div>
+        <div><dt>Fix</dt><dd>Accept macro widths, resolve <code>`define</code> values to literals so generated code never depends on compile order, and keep the design as a permanent regression case.</dd></div>
+      </dl>
+      <p class="found"><b>Found by</b> a real client compile, which is exactly why the regression corpus exists.</p>
+    </article>
+
+    <article class="err" aria-labelledby="e5">
+      <div class="err-h"><p class="lbl">ERR-05 · Money Machine · Gumroad API</p><p class="stamp">Closed</p></div>
+      <h3 id="e5">Uploads over 100 MB were silently truncated</h3>
+      <dl>
+        <div><dt>Symptom</dt><dd>None visible. Uploads reported success; anything past about 100 MB simply wasn’t there.</dd></div>
+        <div><dt>Root cause</dt><dd>The uploader sent the entire file to the first presigned part URL. Gumroad splits uploads into parts of about 100 MB, so everything after part one was lost.</dd></div>
+        <div><dt>Fix</dt><dd>Chunk the file across every presigned part and report each part’s ETag on completion. Verified with a real 130 MB two-part upload whose registered size matched the source exactly.</dd></div>
+      </dl>
+      <p class="found"><b>Found by</b> probing how the API splits parts (50 MB → one part, 200 MB → two) instead of trusting a success response.</p>
+    </article>
+  </div>
+</section>
+
+<section class="sec wrap" id="principles" aria-labelledby="principles-h">
+  <div class="sec-h"><p class="lbl">04 · Absolute maximum ratings</p><h2 id="principles-h">How I work</h2></div>
+  <div>
+    <p class="big">A datasheet lists the limits a part must never exceed. These are mine, and each one was earned by a real bug.</p>
+    <table class="amr stack">
+      <caption>Table 3. Absolute maximum ratings — exceeding these is not tolerated in anything I ship</caption>
+      <thead><tr><th scope="col">Parameter</th><th scope="col">Max</th><th scope="col">Enforced by</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Silent failures</th><td>0</td><td>Errors carry their real cause (ERR-01). Installs reject a suspiciously small “binary” and print it. Truncated lists end in “…” instead of quietly stopping.</td></tr>
+        <tr><th scope="row">AI-written code that skips validation</th><td>0 lines</td><td>Rejection-only validators on every AI assertion, testcase and covergroup, plus a 16-design real-compile regression.</td></tr>
+        <tr><th scope="row">Provider API keys on client machines</th><td>0</td><td>Every AI call goes through a license-checked relay.</td></tr>
+        <tr><th scope="row">Waits without a bound</th><td>0</td><td>Attempt caps and time budgets on every retry (ERR-03).</td></tr>
+        <tr><th scope="row">Fixes that only treat the symptom</th><td>0</td><td>Identity and entitlement are separate checks (ERR-02).</td></tr>
+        <tr><th scope="row">Going live without a human where money is involved</th><td>0</td><td>Money Machine creates drafts, and its QA gate fails closed.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="sec wrap" id="skills" aria-labelledby="skills-h">
+  <div class="sec-h"><p class="lbl">05 · Pin configuration</p><h2 id="skills-h">Skills</h2></div>
+  <div>
+    <p class="big">Twenty-eight pins, two sides: verification on the left, software and infrastructure on the right.</p>
+    <figure class="chip" aria-labelledby="chip-cap">
+      <ul class="pins pl" aria-label="Verification skills, pins 1 to 14">
+        <li><span>1</span>SystemVerilog</li><li><span>2</span>Verilog</li><li><span>3</span>UVM</li><li><span>4</span>SVA</li><li><span>5</span>RAL models</li><li><span>6</span>Constrained random</li><li><span>7</span>Functional coverage</li><li><span>8</span>Formal · JasperGold</li><li><span>9</span>AXI · AHB · APB</li><li><span>10</span>SPI · UART 16550</li><li><span>11</span>Synopsys VCS</li><li><span>12</span>Questa</li><li><span>13</span>Xcelium</li><li><span>14</span>Verdi</li>
+      </ul>
+      <div class="pkg" aria-hidden="true"><b>DTR-01</b><small>DIP-28 · Top view</small></div>
+      <ul class="pins pr" aria-label="Software and infrastructure skills, pins 28 to 15">
+        <li><span>28</span>Python</li><li><span>27</span>FastAPI</li><li><span>26</span>Nuitka</li><li><span>25</span>Docker</li><li><span>24</span>Next.js</li><li><span>23</span>Tailwind CSS</li><li><span>22</span>PostgreSQL</li><li><span>21</span>LLM APIs</li><li><span>20</span>pyslang</li><li><span>19</span>Render · Vercel</li><li><span>18</span>Git · CI</li><li><span>17</span>SEO · JSON-LD</li><li><span>16</span>Splunk SIEM</li><li><span>15</span>Design Compiler</li>
+      </ul>
+      <figcaption id="chip-cap"><b>Figure 3.</b> Pin configuration, DIP-28, top view<span class="hint"> · hover a pin to probe it</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec wrap" id="timeline" aria-labelledby="timeline-h">
+  <div class="sec-h"><p class="lbl">06 · Revision history</p><h2 id="timeline-h">Timeline</h2></div>
+  <div>
+    <p class="big">My career so far, as a timing diagram.</p>
+    <figure class="wave" aria-labelledby="wave-cap">
+      <div class="wv">
+        <p class="ax" aria-hidden="true"><span></span><span>2020</span><span>2023</span><span>Mar 2024</span><span>Nov 2024</span><span>Jul 2025</span><span>Dec 2025</span><span>Jul 2026 →</span></p>
+        <p class="clk" aria-hidden="true"><b>clk</b><span></span></p>
+        <ul class="sig" aria-label="Education">
+          <li class="n" aria-hidden="true">edu</li>
+          <li class="s3">B.Tech, Electronics &amp; Communication <small>RVR &amp; JC College of Engineering · 2020–24</small></li>
+          <li class="z s4" aria-hidden="true"></li>
+        </ul>
+        <ul class="sig role" aria-label="Roles">
+          <li class="n" aria-hidden="true">role[1:0]</li>
+          <li class="z s2" aria-hidden="true"></li>
+          <li>Cybersecurity intern <small>TCS · Apr–Jun 2024</small></li>
+          <li class="s2">Design &amp; verification trainee <small>Maven Silicon · Nov 2024 – Nov 2025</small></li>
+          <li class="s2">Technical Support Engineer – Verification <small>Maven Silicon · Dec 2025 – now</small></li>
+        </ul>
+        <ul class="sig out" aria-label="Output">
+          <li class="n" aria-hidden="true">out[2:0]</li>
+          <li class="z" aria-hidden="true"></li>
+          <li>First builds <small>Java, Node.js, ML · 2023</small></li>
+          <li>JETIR paper <small>Co-author · Mar 2024</small></li>
+          <li class="z" aria-hidden="true"></li>
+          <li>VLSI certification <small>900 hours · Jul 2025</small></li>
+          <li class="z" aria-hidden="true"></li>
+          <li>VereChek, DV Hub, Money Machine <small>Jul–Sep 2026</small></li>
+        </ul>
+      </div>
+      <figcaption id="wave-cap"><b>Figure 4.</b> Career timing diagram, one cycle per milestone, not to scale</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec wrap" id="contact" aria-labelledby="contact-h">
+  <div class="sec-h"><p class="lbl">07 · Ordering information</p><h2 id="contact-h">Contact</h2></div>
+  <div>
+    <p class="hello">Let’s talk verification.</p>
+    <p class="big">Reach out about design verification work, VereChek early access, or anything on this page. I’m in Bengaluru, on IST (UTC+5:30).</p>
+    <table class="order stack">
+      <caption>Table 4. Ordering information</caption>
+      <thead><tr><th scope="col">Orderable part</th><th scope="col">Channel</th><th scope="col">Address</th></tr></thead>
+      <tbody>
+        <tr><td>DTR-01-MAIL</td><th scope="row">Email</th><td><a href="mailto:chakkeradivyatejareddy@gmail.com">chakkeradivyatejareddy@gmail.com</a></td></tr>
+        <tr><td>DTR-01-LNKD</td><th scope="row">LinkedIn</th><td><a href="https://www.linkedin.com/in/divya-teja-reddy-chekkera-b9a38623b">in/divya-teja-reddy-chekkera</a></td></tr>
+        <tr><td>DTR-01-GIT</td><th scope="row">GitHub</th><td><a href="https://github.com/chekkeradivyateja">github.com/chekkeradivyateja</a></td></tr>
+        <tr><td>DTR-01-SHOP</td><th scope="row">Gumroad</th><td><a href="https://divyatejareddy.gumroad.com">DTRLabs · divyatejareddy.gumroad.com</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</main>
+
+<footer class="foot wrap">
+  <p>© 2026 Divya Teja Reddy Chekkera · DTR-01 datasheet, revised 30 September 2026</p>
+  <p><a href="/privacy">Privacy &amp; legal</a> · <a href="https://github.com/chekkeradivyateja/dtr-01-portfolio">Source</a> · No JavaScript, cookies or trackers<span class="noprint"> · Print this page: it’s laid out as a datasheet</span></p>
+</footer>
+</body>
+</html>
