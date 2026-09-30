@@ -19,6 +19,7 @@
 *, ::before, ::after { box-sizing: border-box; }
 html { scroll-padding-top: 4.5rem; -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1rem/1.6 var(--sans); }
+body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--ink); opacity: .055; -webkit-mask: url(/img/traces.svg) 0 0 / 320px 320px; mask: url(/img/traces.svg) 0 0 / 320px 320px; }
 img, svg { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration-color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: .2em; }
 a:hover { color: var(--accent); }
@@ -235,7 +236,7 @@ h1 span { display: block; }
   :root { --paper: #fff; --paper-2: #f1f0ec; --ink: #111; --ink-2: #444; --rule: #bbb; --accent: #b8390d; }
   html { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   body { font-size: 9pt; }
-  .bar, .skip, .links, .noprint, .hint, .fbd .flow, .plate { display: none; }
+  .bar, .skip, .links, .noprint, .hint, .fbd .flow, .plate, body::before { display: none; }
   .hero-grid { grid-template-columns: 1.4fr 1fr; padding-block: 6mm; }
   h1 { font-size: 40pt; }
   .specs { grid-template-columns: repeat(5, 1fr); }

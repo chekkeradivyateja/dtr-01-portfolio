@@ -159,19 +159,18 @@
 
       <figure class="arch" aria-labelledby="arch-cap">
         <ol>
-          <li class="blk"><b>Client machine</b><span><code>vc</code>, one Nuitka-compiled binary</span><span>Parses RTL, generates testbenches and diagrams offline</span><span class="k">Holds: a license key</span></li>
-          <li class="wire" aria-hidden="true"><span>HTTPS</span></li>
-          <li class="blk"><b>Relay · FastAPI on Render</b><span>Validates licenses, meters usage, proxies every AI call</span><span>Issues and revokes keys; hosts builds and the installer</span><span class="k">Holds: the provider API key</span></li>
-          <li class="wire" aria-hidden="true"><span>Prompt</span></li>
-          <li class="blk"><b>AI provider</b><span>Switchable at runtime</span><span>429s retried on Retry-After, inside a time budget</span></li>
+          <li class="blk"><b>1 · Point it at your RTL</b><span>Run <code>vc</code> on one Verilog or SystemVerilog file, or a whole folder.</span><span>No Python, no dependencies, no config files.</span><span class="k">Works fully offline</span></li>
+          <li class="wire" aria-hidden="true"><span>Parse</span></li>
+          <li class="blk"><b>2 · Get a testbench and a plan</b><span>A UVM or plain-SV testbench: agents, sequences, scoreboard, coverage.</span><span>A verification plan with scenarios, covergroups and SVA, plus architecture diagrams.</span><span class="k">AI plan: opt-in</span></li>
+          <li class="wire" aria-hidden="true"><span>Compile</span></li>
+          <li class="blk"><b>3 · Run your simulator</b><span>Take the files into VCS, Questa or Xcelium, whichever you already use.</span><span class="k">Your flow, unchanged</span></li>
         </ol>
-        <p class="lane"><b>Build</b> manylinux_2_28 container → Nuitka → upload to relay → <code>curl … | bash</code> on the client</p>
-        <figcaption id="arch-cap"><b>Figure 2.</b> VereChek system architecture</figcaption>
+        <p class="lane"><b>Debug</b> <code>vc --watch sim.log</code> follows the log as it grows and turns each failure into file-and-line fix guidance</p>
+        <figcaption id="arch-cap"><b>Figure 2.</b> How VereChek works for an engineer</figcaption>
       </figure>
 
       <h4>Design decisions</h4>
       <ol class="decisions">
-        <li><p><b>Keys stay on the server.</b> Clients hold a license key, never a provider key. The relay validates, meters and proxies every AI call, so revoking one license cuts off AI and install access in one place.</p></li>
         <li><p><b>AI output has to earn its way into a file.</b> Rejection-only validators check every AI-proposed assertion, testcase and covergroup — SVA structure, unterminated strings, identifiers outside the interface’s scope, hallucinated transaction fields — and fall back to a safe default rather than embed broken code.</p></li>
         <li><p><b>Verified by compiling, not eyeballing.</b> Every design in a 16-design corpus is generated and compiled through a real SystemVerilog frontend (pyslang) against Accellera UVM-1.2, for both UVM and plain-SV output. The first pass found 18 real compile and functional bugs; the corpus now guards against every one.</p></li>
         <li><p><b>A log watcher that actually tails.</b> Rewrote watch-log from re-parsing the whole file on every poll — with a fresh AI call per issue, per poll — to byte-offset tailing with rotation detection, <code>tail -f</code> semantics and one AI call per issue, ever. An equivalence checker against the old parser caught two bugs before release.</p></li>
@@ -186,7 +185,7 @@
           <div><dt>Designs in the compile regression</dt><dd>16</dd></div>
           <div><dt>Bugs the first real-compile pass caught</dt><dd>18</dd></div>
           <div><dt>Commits to the tool since July 2026</dt><dd>85</dd></div>
-          <div><dt>Provider keys on client machines</dt><dd>0</dd></div>
+          <div><dt>Simulators it feeds: VCS, Questa, Xcelium</dt><dd>3</dd></div>
         </dl>
         <p class="note">The marketing site is Next.js, Tailwind and Framer Motion, with server-verified Razorpay checkout for ₹299 early-access slots and a Postgres-backed waitlist with email notifications.</p>
       </div>
@@ -335,7 +334,6 @@
       <tbody>
         <tr><th scope="row">Silent failures</th><td>0</td><td>Errors carry their real cause (ERR-01). Installs reject a suspiciously small “binary” and print it. Truncated lists end in “…” instead of quietly stopping.</td></tr>
         <tr><th scope="row">AI-written code that skips validation</th><td>0 lines</td><td>Rejection-only validators on every AI assertion, testcase and covergroup, plus a 16-design real-compile regression.</td></tr>
-        <tr><th scope="row">Provider API keys on client machines</th><td>0</td><td>Every AI call goes through a license-checked relay.</td></tr>
         <tr><th scope="row">Waits without a bound</th><td>0</td><td>Attempt caps and time budgets on every retry (ERR-03).</td></tr>
         <tr><th scope="row">Fixes that only treat the symptom</th><td>0</td><td>Identity and entitlement are separate checks (ERR-02).</td></tr>
         <tr><th scope="row">Going live without a human where money is involved</th><td>0</td><td>Money Machine creates drafts, and its QA gate fails closed.</td></tr>
