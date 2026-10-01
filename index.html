@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Divya Teja Reddy Chekkera — Design Verification Engineer</title>
-<meta name="description" content="Design verification engineer in Bengaluru (UVM, SVA, formal, coverage closure) who also designs and ships verification tools: VereChek, DV Verification Hub and an autonomous product pipeline.">
+<meta name="description" content="Design verification engineer in Bengaluru (UVM, SVA, formal, coverage closure) who also designs and ships verification tools: VereChek and DV Verification Hub.">
 <link rel="canonical" href="https://divyatejareddy.vercel.app/">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f2efe6" media="(prefers-color-scheme: light)">
@@ -100,7 +100,7 @@
     <div><dt>Functional coverage, closed on 3 UVM environments</dt><dd>100%</dd></div>
     <div><dt>Designs in VereChek’s real-compile regression</dt><dd>16</dd></div>
     <div><dt>In-depth SystemVerilog &amp; UVM articles published</dt><dd>30</dd></div>
-    <div><dt>Agents in an unattended product pipeline</dt><dd>9</dd></div>
+    <div><dt>Hours of industry-level VLSI design &amp; verification training</dt><dd>900</dd></div>
   </dl>
 </header>
 
@@ -111,7 +111,7 @@
       <p class="big">Hi, I’m Divya Teja — a design verification engineer at Maven Silicon in Bengaluru.</p>
       <p>My day job is building UVM environments and formal proofs for AMBA-based IP — APB-SPI, APB-UART 16550, AHB-to-APB bridges — and chasing coverage until it closes. On the APB-SPI controller, formal verification in JasperGold surfaced five RTL bugs through vacuous proofs and unreachable covers: corner cases that simulation alone can’t prove.</p>
       <p>I came to verification by way of an ECE degree in Guntur, a co-authored journal paper comparing 32-bit complex floating-point multiplier architectures, and a cybersecurity internship at TCS spent parsing logs for the one line that mattered. That habit stuck.</p>
-      <p>Outside work I build the tools I wished I had. <a href="#verechek">VereChek</a> turns RTL into a compiling UVM testbench and a design-specific verification plan. <a href="#dvhub">DV Verification Hub</a> is a free reference for engineers learning the same stack. <a href="#mm">Money Machine</a> researches, builds and lists digital products on its own, every 30 minutes. The through-line is the same everywhere: find the detail that’s quietly wrong, and fix the cause, not the symptom.</p>
+      <p>Outside work I build the tools I wished I had. <a href="#verechek">VereChek</a> turns RTL into a compiling UVM testbench and a design-specific verification plan. <a href="#dvhub">DV Verification Hub</a> is a free reference for engineers learning the same stack. My UVM and RTL projects, like an <a href="#spi">APB-SPI testbench</a> with a full RAL model, are open source on GitHub. The through-line is the same everywhere: find the detail that’s quietly wrong, and fix the cause, not the symptom.</p>
     </div>
     <div>
       <table class="reg">
@@ -135,7 +135,7 @@
 <section class="sec wrap" id="work" aria-labelledby="work-h">
   <div class="sec-h"><p class="lbl">02 · Typical applications</p><h2 id="work-h">Selected work</h2></div>
   <div class="work">
-    <p class="big">Three products I designed, built and shipped end to end — and the verification work underneath them.</p>
+    <p class="big">Two products I designed, built and shipped end to end, and the open-source verification work underneath them.</p>
 
     <article class="case" id="verechek" aria-labelledby="vc-h">
       <p class="lbl">Application 1 · Flagship · July 2026 – present</p>
@@ -213,33 +213,37 @@
       </figure>
     </article>
 
-    <article class="card" id="mm" aria-labelledby="mm-h">
+    <article class="card" id="spi" aria-labelledby="spi-h">
       <div>
-        <p class="lbl">Application 3 · Running since September 2026</p>
-        <h3 id="mm-h">Money Machine</h3>
-        <p class="sub">An unattended, nine-agent pipeline that researches, builds, QA-gates and lists digital products on Gumroad.</p>
-        <ol class="chain" aria-label="Pipeline stages, in order">
-          <li>Scout</li><li>Judge</li><li>Creator</li><li>QA gate</li><li>Publisher</li><li>Marketing</li><li>Analytics</li><li>Optimizer</li><li>SEO content</li>
-        </ol>
+        <p class="lbl">Application 3 · Open source · UVM 1.1d · QuestaSim</p>
+        <h3 id="spi-h">APB-SPI verification</h3>
+        <p class="sub">A UVM testbench built from scratch for an APB-interfaced SPI master controller, with every line of it public on GitHub.</p>
         <ul class="facts">
-          <li>A status-routed orchestrator over SQLite with stateless agents: kill it anywhere and it resumes where it stopped, and publishing is idempotent.</li>
-          <li>The QA gate fails closed. Anything with IP or policy risk waits for a human, and every rejection teaches the gate a new banned term.</li>
-          <li>Real Gumroad v2 integration — product creation, presigned multipart upload, rich-content file embedding — on a 30-minute cron, under a lock so cycles never overlap.</li>
-          <li>Creates drafts by default. Going live with money involved stays a human decision.</li>
+          <li><b>4</b> SPI modes verified, every CPOL/CPHA combination, with LSB- and MSB-first transmission.</li>
+          <li><b>10</b> tests, regressed and merged, closing functional coverage at 100%.</li>
+          <li><b>2</b> agents (APB and SPI) feeding a self-checking scoreboard over TLM FIFOs, coordinated by a virtual sequencer.</li>
+          <li><b>1</b> RAL model with front-door (APB) and back-door (direct RTL) access, checking the CR1, CR2, BR and DR registers.</li>
         </ul>
-        <p>Its companion, Notion Student Hub, is a static SEO site the pipeline’s content agent writes for: 14 guides so far, 8 of them written and committed by the pipeline itself. Honest status: production is autonomous; traffic is the open problem, and that site is the first real lever.</p>
-        <p class="go-row"><a class="go" href="https://notion-student-hub.vercel.app">Notion Student Hub ↗</a><a class="go" href="https://divyatejareddy.gumroad.com">DTRLabs on Gumroad ↗</a></p>
+        <p class="go-row"><a class="go" href="https://github.com/chekkeradivyateja/APB-Based-SPI-Protocol-Verification-UVM">Browse the source ↗</a></p>
       </div>
-      <figure class="plate">
-        <img src="/img/notion-hub.webp" width="800" height="560" loading="lazy" decoding="async" alt="Notion Student Hub home page: a short introduction, two product links and a list of guides.">
-        <figcaption><b>Plate 3.</b> Notion Student Hub, captured 30 Sep 2026</figcaption>
+      <figure>
+        <table>
+          <caption>Table 2. SPI modes covered</caption>
+          <thead><tr><th scope="col">Mode</th><th scope="col">CPOL</th><th scope="col">CPHA</th><th scope="col">SCLK idle</th><th scope="col">Sample edge</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">0</th><td>0</td><td>0</td><td>Low</td><td>Rising</td></tr>
+            <tr><th scope="row">1</th><td>0</td><td>1</td><td>Low</td><td>Falling</td></tr>
+            <tr><th scope="row">2</th><td>1</td><td>0</td><td>High</td><td>Falling</td></tr>
+            <tr><th scope="row">3</th><td>1</td><td>1</td><td>High</td><td>Rising</td></tr>
+          </tbody>
+        </table>
       </figure>
     </article>
 
     <div class="env">
       <h3>Verification environments</h3>
       <table class="stack">
-        <caption>Table 2. UVM and formal environments, Maven Silicon, 2024–2026</caption>
+        <caption>Table 3. UVM and formal environments, Maven Silicon, 2024–2026</caption>
         <thead><tr><th scope="col">Design</th><th scope="col">Methodology</th><th scope="col">Result</th><th scope="col">Source</th></tr></thead>
         <tbody>
           <tr><th scope="row">APB-based SPI controller</th><td>UVM, RAL (front- and back-door), SVA, JasperGold FPV</td><td>5 RTL bugs via vacuous proofs and unreachable covers; 100% functional coverage across all four CPOL/CPHA modes</td><td><a href="https://github.com/chekkeradivyateja/APB-Based-SPI-Protocol-Verification-UVM">GitHub ↗</a></td></tr>
@@ -314,16 +318,6 @@
       <p class="found"><b>Found by</b> a real client compile, which is exactly why the regression corpus exists.</p>
     </article>
 
-    <article class="err" aria-labelledby="e5">
-      <div class="err-h"><p class="lbl">ERR-05 · Money Machine · Gumroad API</p><p class="stamp">Closed</p></div>
-      <h3 id="e5">Uploads over 100 MB were silently truncated</h3>
-      <dl>
-        <div><dt>Symptom</dt><dd>None visible. Uploads reported success; anything past about 100 MB simply wasn’t there.</dd></div>
-        <div><dt>Root cause</dt><dd>The uploader sent the entire file to the first presigned part URL. Gumroad splits uploads into parts of about 100 MB, so everything after part one was lost.</dd></div>
-        <div><dt>Fix</dt><dd>Chunk the file across every presigned part and report each part’s ETag on completion. Verified with a real 130 MB two-part upload whose registered size matched the source exactly.</dd></div>
-      </dl>
-      <p class="found"><b>Found by</b> probing how the API splits parts (50 MB → one part, 200 MB → two) instead of trusting a success response.</p>
-    </article>
   </div>
 </section>
 
@@ -332,14 +326,13 @@
   <div>
     <p class="big">A datasheet lists the limits a part must never exceed. These are mine, and each one was earned by a real bug.</p>
     <table class="amr stack">
-      <caption>Table 3. Absolute maximum ratings — exceeding these is not tolerated in anything I ship</caption>
+      <caption>Table 4. Absolute maximum ratings — exceeding these is not tolerated in anything I ship</caption>
       <thead><tr><th scope="col">Parameter</th><th scope="col">Max</th><th scope="col">Enforced by</th></tr></thead>
       <tbody>
         <tr><th scope="row">Silent failures</th><td>0</td><td>Errors carry their real cause (ERR-01). Installs reject a suspiciously small “binary” and print it. Truncated lists end in “…” instead of quietly stopping.</td></tr>
         <tr><th scope="row">AI-written code that skips validation</th><td>0 lines</td><td>Rejection-only validators on every AI assertion, testcase and covergroup, plus a 16-design real-compile regression.</td></tr>
         <tr><th scope="row">Waits without a bound</th><td>0</td><td>Attempt caps and time budgets on every retry (ERR-03).</td></tr>
         <tr><th scope="row">Fixes that only treat the symptom</th><td>0</td><td>Identity and entitlement are separate checks (ERR-02).</td></tr>
-        <tr><th scope="row">Going live without a human where money is involved</th><td>0</td><td>Money Machine creates drafts, and its QA gate fails closed.</td></tr>
       </tbody>
     </table>
   </div>
@@ -390,7 +383,7 @@
           <li class="z" aria-hidden="true"></li>
           <li>VLSI certification <small>900 hours · Jul 2025</small></li>
           <li class="z" aria-hidden="true"></li>
-          <li>VereChek, DV Hub, Money Machine <small>Jul–Sep 2026</small></li>
+          <li>VereChek, DV Verification Hub <small>Jul–Sep 2026</small></li>
         </ul>
       </div>
       <figcaption id="wave-cap"><b>Figure 4.</b> Career timing diagram, one cycle per milestone, not to scale</figcaption>
@@ -405,7 +398,7 @@
     <p class="otw">Open to work</p>
     <p class="big">I’m looking for design verification roles. Reach out about a role, VereChek early access, or anything on this page. I’m in Bengaluru, on IST (UTC+5:30).</p>
     <table class="order stack">
-      <caption>Table 4. Ordering information</caption>
+      <caption>Table 5. Ordering information</caption>
       <thead><tr><th scope="col">Orderable part</th><th scope="col">Channel</th><th scope="col">Address</th></tr></thead>
       <tbody>
         <tr><td>DTR-01-MAIL</td><th scope="row">Email</th><td><a href="mailto:chakkeradivyatejareddy@gmail.com">chakkeradivyatejareddy@gmail.com</a></td></tr>
