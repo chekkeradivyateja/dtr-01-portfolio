@@ -1,4 +1,4 @@
-# DTR-01 — Divya Teja Reddy Chekkera
+# DTR-07 — Divya Teja Reddy Chekkera
 
 Personal portfolio, laid out as a component datasheet. Live at https://divyatejareddy.vercel.app
 

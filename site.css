@@ -1,4 +1,4 @@
-/* DTR-01 — one stylesheet, no build step, no JavaScript. */
+/* DTR-07 — one stylesheet, no build step, no JavaScript. */
 @font-face { font-family: "Instrument Serif"; src: url(/fonts/serif-400.woff2) format("woff2"); font-display: swap; }
 @font-face { font-family: "Instrument Serif"; font-style: italic; src: url(/fonts/serif-400i.woff2) format("woff2"); font-display: swap; }
 @font-face { font-family: "DTR Sans"; font-weight: 400 600; src: url(/fonts/sans-var.woff2) format("woff2"); font-display: swap; }
@@ -234,7 +234,7 @@ h1 span { display: block; }
 /* Print: the page becomes an actual datasheet */
 @media print {
   @page { size: A4; margin: 12mm 12mm 14mm;
-    @bottom-left { content: "DTR-01 · Divya Teja Reddy Chekkera · Datasheet"; font: 7.5pt "DTR Mono", monospace; color: #555; }
+    @bottom-left { content: "DTR-07 · Divya Teja Reddy Chekkera · Datasheet"; font: 7.5pt "DTR Mono", monospace; color: #555; }
     @bottom-right { content: counter(page) " / " counter(pages); font: 7.5pt "DTR Mono", monospace; color: #555; } }
   :root { --paper: #fff; --paper-2: #f1f0ec; --ink: #111; --ink-2: #444; --rule: #bbb; --accent: #b8390d; }
   html { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
