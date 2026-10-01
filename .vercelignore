@@ -1,3 +1,16 @@
-README.md
-.gitignore
-.env*
+# Allowlist: deploy only the site itself; anything new stays private until listed here.
+/*
+!/index.html
+!/privacy.html
+!/404.html
+!/site.css
+!/vercel.json
+!/robots.txt
+!/sitemap.xml
+!/favicon.svg
+!/apple-touch-icon.png
+!/og.png
+!/resume.pdf
+!/fonts
+!/img
+!/.well-known
