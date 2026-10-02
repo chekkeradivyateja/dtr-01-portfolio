@@ -35,6 +35,9 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Divya Teja Reddy Chekkera","alternateName":"Divya Teja Chekkera","url":"https://divyatejareddy.vercel.app/","jobTitle":"Technical Support Engineer – Verification","worksFor":{"@type":"Organization","name":"Maven Silicon Softech Pvt. Ltd."},"alumniOf":{"@type":"CollegeOrUniversity","name":"R.V.R. & J.C. College of Engineering"},"address":{"@type":"PostalAddress","addressLocality":"Bengaluru","addressCountry":"IN"},"knowsAbout":["Design verification","SystemVerilog","UVM","SystemVerilog Assertions","Formal verification","Functional coverage","Python","FastAPI"],"sameAs":["https://www.linkedin.com/in/divya-teja-reddy-chekkera-b9a38623b","https://github.com/chekkeradivyateja","https://divyatejareddy.gumroad.com"]}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoObject","name":"VereChek demo: from RTL to a running UVM testbench","description":"VereChek, an AI-assisted verification tool by Divya Teja Reddy Chekkera, run start to finish on an AXI4-Lite-to-APB4 bridge: RTL parsing, a 38-file UVM testbench, architecture and verification-plan reports, and live simulation-log debugging.","thumbnailUrl":"https://divyatejareddy.vercel.app/media/verechek-demo-poster.webp","uploadDate":"2026-10-02","duration":"PT1M2S","contentUrl":"https://divyatejareddy.vercel.app/media/verechek-demo.mp4","embedUrl":"https://divyatejareddy.vercel.app/#demo"}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -151,15 +154,31 @@
       <div class="cols">
         <div class="prose">
           <h4>The problem</h4>
-          <p>Every verification project opens with hours of UVM scaffolding — interfaces, agents, sequencers, scoreboards, coverage stubs — before the first real testcase. AI can draft it, but AI-written SystemVerilog that doesn’t compile is worse than none. And shipping an AI tool to machines you don’t control usually means shipping your API key with it.</p>
+          <p>Every verification project opens with hours of UVM scaffolding — interfaces, agents, sequencers, scoreboards, coverage stubs — before the first real testcase. AI can draft it, but AI-written SystemVerilog that doesn’t compile is worse than none.</p>
+        </div>
+        <div class="prose">
           <h4>What it does</h4>
           <p>Point it at Verilog or SystemVerilog and it generates a UVM or plain-SV testbench, a design-specific verification plan (scenarios, covergroups, SVA assertions), ASCII and HTML architecture diagrams, and a log watcher that turns VCS, Questa and Xcelium failures into file-and-line fix guidance. Local generation works fully offline; AI features are opt-in.</p>
         </div>
-        <figure class="plate">
-          <img src="/img/verechek-console.webp" width="1200" height="685" loading="lazy" decoding="async" alt="VereChek console demo: the command verechek --rtl spi_master.v --gen uvm prints a port table for module spi_master and detects an SPI master with four chip selects.">
-          <figcaption><b>Plate 1.</b> Console demo from the VereChek site, captured 30 Sep 2026</figcaption>
-        </figure>
       </div>
+
+      <figure class="plate demo" id="demo">
+        <video controls muted playsinline preload="none" width="1280" height="720" poster="/media/verechek-demo-poster.webp" aria-describedby="demo-tx">
+          <source src="/media/verechek-demo.webm" type="video/webm">
+          <source src="/media/verechek-demo.mp4" type="video/mp4">
+          <a href="/media/verechek-demo.mp4">Download the VereChek demo video (MP4, 3 MB)</a>
+        </video>
+        <details class="tx" id="demo-tx">
+          <summary>What happens in the video</summary>
+          <ol>
+            <li><b>Point it at your RTL.</b> <code>vc --rtl axi4lite_apb4_bridge.v</code> detects an AXI-to-APB bridge protocol and lists all 26 ports, 9 parameters and 5 FSM states.</li>
+            <li><b>One command for everything.</b> <code>--all-uvm</code> writes a 38-file UVM testbench (two active agents, one passive monitor agent, scoreboard, register model, virtual sequencer), an architecture diagram and a verification plan, in half a second.</li>
+            <li><b>Review the reports.</b> The verification plan, UVM architecture and pin diagram open as local HTML pages; the plan is also exported as PDF and CSV.</li>
+            <li><b>Debug live.</b> <code>vc --watch sim.log</code> follows the simulation log as it grows and explains each failure with a fix: a missing virtual interface, then a failed randomization.</li>
+          </ol>
+        </details>
+        <figcaption><b>Video 1.</b> VereChek start to finish on a real AXI4-Lite-to-APB4 bridge · 62 s · no audio · recorded from the tool’s actual output</figcaption>
+      </figure>
 
       <figure class="arch" aria-labelledby="arch-cap">
         <ol>
